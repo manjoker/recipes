@@ -6,26 +6,7 @@
 
     <h1 class="h3 mt-5">Ajouter un ingrédient</h1>
 
-    {% for message in app.flashes('notice') %}
-        <div class="alert alert-dismissible alert-success flash-notice">
-            {{ message }}
-        </div>
-    {% endfor %}
-
-    {{ form_start(form) }}
-        <div class="my-custom-class-for-errors">
-            {{ form_errors(form) }}
-        </div>
-
-        <div class="row">
-            <div class="col">
-                {{ form_row(form.name) }}
-            </div>
-            <div class="col" id="some-custom-id">
-                {{ form_row(form.price) }}
-            </div>
-        </div>
-    {{ form_end(form) }}
+    {% include "partials/ingredient.form.html.twig" %}
 
 {% endblock %}
 

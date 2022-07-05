@@ -1,0 +1,22 @@
+{% for message in app.flashes('notice') %} {#
+<div class="alert alert-dismissible alert-success flash-notice">
+    {{ message }}
+</div> #}
+<div class="alert alert-dismissible alert-success flash-notice">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>{{ message }}</strong>.
+</div>
+{% endfor %} {{ form_start(form) }}
+<div class="my-custom-class-for-errors">
+    {{ form_errors(form) }}
+</div>
+
+<div class="row">
+    <div class="col">
+        {{ form_row(form.name) }}
+    </div>
+    <div class="col" id="some-custom-id">
+        {{ form_row(form.price) }}
+    </div>
+</div>
+{{ form_end(form) }}

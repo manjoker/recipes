@@ -7,11 +7,11 @@
 
     <h5>
         <div class="count">
-            il y a <span class="badge bg-primary">{{ ingredients.getTotalItemCount }}</span> ingrédients dans la liste.
+            Il y a <span class="badge bg-primary">{{ ingredients.getTotalItemCount }}</span> ingrédients dans la liste.
         </div>
     </h5>
     
-    <a href="{{path('app_ingredient_new')}}" class="btn btn-primary">Ajouter un ingrédient</a>
+    <a href="{{path('app_ingredient_new')}}" class="btn btn-primary mt-4">Ajouter un ingrédient</a>
 
     <div class="jumbotron mt-4">
         <table class="table table-hover">
@@ -30,7 +30,7 @@
                     <td>{{ingredient.name}}</td>
                     <td>{{ingredient.price | format_currency('EUR ', {rounding_mode: 'floor'}) }} </td>
                     <td>{{ingredient.createdAt | date('m-d-Y') }}</td>
-
+                    <td><a href="{{path('app_ingredient_edit', {'id': ingredient.id})}}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a> | <a href="{{path('app_ingredient_delete', {'id': ingredient.id})}}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                 </tr>
             {% endfor %}
             </tbody>
