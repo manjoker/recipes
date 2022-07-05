@@ -17,7 +17,7 @@ class Ingredient
 
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\NotBlank()]
-    #[Assert\Length( min: 2, max: 5 )]
+    #[Assert\Length( min: 2, max: 50 )]
     private string $name;
 
     #[ORM\Column(type: 'float')]
