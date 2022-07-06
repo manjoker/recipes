@@ -5,8 +5,11 @@ namespace App\Entity;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\IngredientRepository;
+
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
+#[UniqueEntity('name')]
 #[ORM\Entity(repositoryClass: IngredientRepository::class)]
 class Ingredient
 {
@@ -21,9 +24,8 @@ class Ingredient
     private string $name;
 
     #[ORM\Column(type: 'float')]
-    #[Assert\NotNull()]
-    #[Assert\Positive()]
-    #[Assert\LessThan( 200 )]
+   
+    
     private float $price;
 
     #[ORM\Column(type: 'datetime_immutable')]
@@ -37,6 +39,7 @@ class Ingredient
     {
         $this->createdAt = new \DateTimeImmutable();
     }
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -76,5 +79,10 @@ class Ingredient
         $this->createdAt = $createdAt;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

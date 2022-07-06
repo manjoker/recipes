@@ -27,7 +27,7 @@ class IngredientType extends AbstractType
                     'class' => 'form-label mt-4'
                 ],
                 'constraints' => [
-                   // new Assert\Length(['min' => '2', 'max' => '50']),
+                    new Assert\Length(['min' => '2', 'max' => '50']),
                     new Assert\NotBlank()
                 ]
             ])
@@ -45,7 +45,9 @@ class IngredientType extends AbstractType
                     new Assert\LessThan( 200 )
                 ]
             ])
-            ->add('save', SubmitType::class)
+            ->add('save', SubmitType::class, [
+                'label' => 'Créer'
+            ])
         ;
     }
 
